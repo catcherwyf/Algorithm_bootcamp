@@ -1,13 +1,3 @@
-# Algorithm_bootcamp
- 算法训练营
-
-## vscode 配置
-当前项目使用`vscode`开发，下面简单介绍在`vscode`下的配置。
-1. 修改编译后文件的默认目录
-文件默认编译文件所在目录与源码文件在同一层级，将其修改至其他目录，方便管理
-在`.vscode`目录下修改`settings.json`文件，如没有可新建。
-写入如下配置，
-```
 {
     "files.associations": {
         "iostream": "cpp",
@@ -68,39 +58,3 @@
         "sml": "cd $dir && sml $fileName"
     }
 }
-```
-这个配置文件其实只需要关注两行即可
-```
-#初始配置
-"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-```
-```
-#修改后配置
-"c": "cd $dir && gcc $fileName -o $dir/out/$fileNameWithoutExt && $dir/out/$fileNameWithoutExt",
-"cpp": "cd $dir && g++ $fileName -o $dir/out/$fileNameWithoutExt && $dir/out/$fileNameWithoutExt",
-```
-```
-$dir 是指当前文件夹
-/out 是需要再程序文件夹下新建的文件夹
-$fileNameWithoutExt 是当前运行的文件
-```
-
-2. 修改 `.gitignore` 文件
-默认没有修改编译后文件的默认目录情况下，若不想将编译后的文件上传至 git，`.gitignore`需要如下配置
-```
-#忽略掉所有文件
-*
-#取消忽略所有带有后缀名的文件
-!*.*
-#取消忽略所有目录
-!*/
-```
-将编译后的文件写入指定目录后，`.gitignore`只需如下配置
-```
-**/out
-```
-3. 解决 `cin` 输入问题
-在使用 vscode 运行 c++ 文件，当通过`cin`获取输入时，无法获取键盘的输入，需要如下配置。
-找到设置选项，输入`run in terminal`，勾选 `whether to run code in integrated terminal`
-![vscode配置](images/vscode%E9%85%8D%E7%BD%AE.png)
